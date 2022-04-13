@@ -20,22 +20,22 @@ app.post("/events", (req, res) => {
 
   // Posts Service
   axios
-    .post("http://localhost:4000/events", event)
+    .post("http://posts-clusterip-srv:4000/events", event)
     .catch((err) => console.log("4000: ", err.code));
 
   // Comments Service
   axios
-    .post("http://localhost:4001/events", event)
+    .post("http://comments-srv:4001/events", event)
     .catch((err) => console.log("4001: ", err.code));
 
   // Query Service
   axios
-    .post("http://localhost:4002/events", event)
+    .post("http://query-srv:4002/events", event)
     .catch((err) => console.log("4002: ", err.code));
 
   // Moderation Service
   axios
-    .post("http://localhost:4003/events", event)
+    .post("http://moderation-srv:4003/events", event)
     .catch((err) => console.log("4003: ", err.code));
 
   res.send({ status: "OK!" });

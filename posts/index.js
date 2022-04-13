@@ -27,7 +27,7 @@ app.post("/posts", async (req, res) => {
   };
 
   // even-bus
-  await axios.post("http://localhost:4005/events", {
+  await axios.post("http://event-bus-srv:4005/events", {
     type: "PostCreated",
     data: {
       id,
@@ -44,5 +44,6 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(PORT, () => {
+  console.log('v2222');
   console.log("POSTS listen on port", PORT);
 });
